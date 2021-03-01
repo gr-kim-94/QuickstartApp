@@ -9,5 +9,7 @@ target 'QuickstartApp' do
 
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
-  
+  pod "youtube-ios-player-helper"
+  pod 'SDWebImage', :modular_headers => true
+
 end

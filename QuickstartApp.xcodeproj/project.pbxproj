@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		4EBC825876E1D09E574A9D2F /* Pods_QuickstartApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D34279573E05695F64C472 /* Pods_QuickstartApp.framework */; };
+		F474DF4225EC1AE90034D6A0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F474DF4125EC1AE90034D6A0 /* MainViewController.swift */; };
+		F474DFF125EC35140034D6A0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F474DFF025EC35140034D6A0 /* BaseViewController.swift */; };
+		F474E06025EC6A140034D6A0 /* VideoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F474E05F25EC6A140034D6A0 /* VideoInfo.swift */; };
+		F474E06325EC6A260034D6A0 /* VideoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F474E06225EC6A260034D6A0 /* VideoViewModel.swift */; };
+		F474E0F325ECB7830034D6A0 /* VideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F474E0F225ECB7830034D6A0 /* VideoCollectionViewCell.swift */; };
 		F47D4AD725EBEEEE00736B87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47D4AD625EBEEEE00736B87 /* AppDelegate.swift */; };
 		F47D4ADE25EBEEEE00736B87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F47D4ADC25EBEEEE00736B87 /* Main.storyboard */; };
 		F47D4AE025EBEEF200736B87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F47D4ADF25EBEEF200736B87 /* Assets.xcassets */; };
@@ -20,6 +25,11 @@
 		278CCAA26B24A960AD7A9C76 /* Pods-QuickstartApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickstartApp.release.xcconfig"; path = "Target Support Files/Pods-QuickstartApp/Pods-QuickstartApp.release.xcconfig"; sourceTree = "<group>"; };
 		A001736BA2066001A2860B5C /* Pods-QuickstartApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickstartApp.debug.xcconfig"; path = "Target Support Files/Pods-QuickstartApp/Pods-QuickstartApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C9D34279573E05695F64C472 /* Pods_QuickstartApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuickstartApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F474DF4125EC1AE90034D6A0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F474DFF025EC35140034D6A0 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		F474E05F25EC6A140034D6A0 /* VideoInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoInfo.swift; sourceTree = "<group>"; };
+		F474E06225EC6A260034D6A0 /* VideoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewModel.swift; sourceTree = "<group>"; };
+		F474E0F225ECB7830034D6A0 /* VideoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionViewCell.swift; sourceTree = "<group>"; };
 		F47D4AD325EBEEEE00736B87 /* QuickstartApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickstartApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47D4AD625EBEEEE00736B87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F47D4ADD25EBEEEE00736B87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -59,6 +69,49 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F474DFF325EC35A60034D6A0 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				F474DFF525EC35C20034D6A0 /* Cell */,
+				F474DF4125EC1AE90034D6A0 /* MainViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		F474DFF425EC35AA0034D6A0 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				F47D4B1425EBF49700736B87 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		F474DFF525EC35C20034D6A0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F474E0F225ECB7830034D6A0 /* VideoCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		F474DFF625EC35DB0034D6A0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F47D4AE425EBEEF200736B87 /* Info.plist */,
+				F47D4AEB25EBEFA700736B87 /* GoogleService-Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F474E05E25EC6A020034D6A0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F474E05F25EC6A140034D6A0 /* VideoInfo.swift */,
+				F474E06225EC6A260034D6A0 /* VideoViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F47D4ACA25EBEEEE00736B87 = {
 			isa = PBXGroup;
 			children = (
@@ -80,13 +133,15 @@
 		F47D4AD525EBEEEE00736B87 /* QuickstartApp */ = {
 			isa = PBXGroup;
 			children = (
-				F47D4AEB25EBEFA700736B87 /* GoogleService-Info.plist */,
+				F474E05E25EC6A020034D6A0 /* Model */,
+				F474DFF325EC35A60034D6A0 /* Main */,
+				F474DFF425EC35AA0034D6A0 /* Login */,
 				F47D4AD625EBEEEE00736B87 /* AppDelegate.swift */,
+				F474DFF025EC35140034D6A0 /* BaseViewController.swift */,
 				F47D4ADC25EBEEEE00736B87 /* Main.storyboard */,
-				F47D4ADF25EBEEF200736B87 /* Assets.xcassets */,
 				F47D4AE125EBEEF200736B87 /* LaunchScreen.storyboard */,
-				F47D4AE425EBEEF200736B87 /* Info.plist */,
-				F47D4B1425EBF49700736B87 /* LoginViewController.swift */,
+				F47D4ADF25EBEEF200736B87 /* Assets.xcassets */,
+				F474DFF625EC35DB0034D6A0 /* Supporting Files */,
 			);
 			path = QuickstartApp;
 			sourceTree = "<group>";
@@ -224,7 +279,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F474DFF125EC35140034D6A0 /* BaseViewController.swift in Sources */,
+				F474DF4225EC1AE90034D6A0 /* MainViewController.swift in Sources */,
+				F474E06325EC6A260034D6A0 /* VideoViewModel.swift in Sources */,
+				F474E06025EC6A140034D6A0 /* VideoInfo.swift in Sources */,
 				F47D4B1525EBF49700736B87 /* LoginViewController.swift in Sources */,
+				F474E0F325ECB7830034D6A0 /* VideoCollectionViewCell.swift in Sources */,
 				F47D4AD725EBEEEE00736B87 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

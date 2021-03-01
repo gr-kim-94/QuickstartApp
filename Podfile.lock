@@ -58,10 +58,16 @@ PODS:
   - nanopb/decode (2.30907.0)
   - nanopb/encode (2.30907.0)
   - PromisesObjC (1.2.12)
+  - SDWebImage (5.10.4):
+    - SDWebImage/Core (= 5.10.4)
+  - SDWebImage/Core (5.10.4)
+  - youtube-ios-player-helper (1.0.3)
 
 DEPENDENCIES:
   - Firebase/Auth
   - GoogleSignIn
+  - SDWebImage
+  - youtube-ios-player-helper
 
 SPEC REPOS:
   trunk:
@@ -77,6 +83,8 @@ SPEC REPOS:
     - GTMSessionFetcher
     - nanopb
     - PromisesObjC
+    - SDWebImage
+    - youtube-ios-player-helper
 
 SPEC CHECKSUMS:
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
@@ -91,7 +99,9 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
+  SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
+  youtube-ios-player-helper: 0185c57db23c80d63d6ca11251d110abb8a4ca61
 
-PODFILE CHECKSUM: 95e07559e4984d1513fee8580fe13e9665e50417
+PODFILE CHECKSUM: 4419fb8f635a016658be978d82079c88aa16ce69
 
 COCOAPODS: 1.10.1

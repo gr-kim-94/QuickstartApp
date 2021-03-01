@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 import GoogleSignIn
 
-class LoginViewController: UIViewController, GIDSignInDelegate {
+class LoginViewController: BaseViewController, GIDSignInDelegate {
     
     @IBOutlet weak var signInButton: GIDSignInButton!
     
@@ -18,6 +18,8 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
         
         // Do any additional setup after loading the view.
         
+        self.signInButton.isHidden = true
+
         // Google login init
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
@@ -25,16 +27,20 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
         
         GIDSignIn.sharedInstance()?.restorePreviousSignIn() // 자동로그인
     }
-        
+    
     // MARK: GIDSignInDelegate
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
         // ...
         if let error = error {
             print ("Error signIn : %@", error.localizedDescription)
+            self.signInButton.isHidden = false
             return
         }
         
-        guard let authentication = user.authentication else { return }
+        guard let authentication = user.authentication else {
+            self.signInButton.isHidden = false
+            return
+        }
         
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                        accessToken: authentication.accessToken)
@@ -42,11 +48,18 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
         Auth.auth().signIn(with: credential) { (authResult, error) in
             if let error = error {
                 print ("Error signing in: %@", error.localizedDescription)
+                self.signInButton.isHidden = false
                 return
             }
             // User is signed in
             // ...
-            print ("Sign In.")
+            //print ("Sign In.")
+            
+            self.appDelegate.user = user;
+            
+            let mainViewController = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController")
+            self.appDelegate.window?.rootViewController = mainViewController
+            self.appDelegate.window?.makeKeyAndVisible()
         }
     }
     
@@ -58,4 +71,11 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
             print ("Error signing out: %@", signOutError)
         }
     }
+    
+    @IBAction func skipTouchUpInside(_ sender: Any) {
+        let mainViewController = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController")
+        self.appDelegate.window?.rootViewController = mainViewController
+        self.appDelegate.window?.makeKeyAndVisible()
+    }
+    
 }
