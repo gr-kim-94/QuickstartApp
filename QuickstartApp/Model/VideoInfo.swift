@@ -19,6 +19,7 @@ struct VideoInfo: Codable {
 struct VideoItem: Codable {
     var etag, kind: String?
     var id: ID?
+    let isMor: Bool
     let snippet: Snippet?
 }
 

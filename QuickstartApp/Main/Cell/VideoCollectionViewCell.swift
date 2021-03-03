@@ -7,12 +7,15 @@
 
 import UIKit
 import SDWebImage
+import youtube_ios_player_helper
 
-class VideoCollectionViewCell: UICollectionViewCell {
+class VideoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    var isPlaying = false
     var data: VideoItem?
     
+    @IBOutlet weak var playerView: YTPlayerView!
     @IBOutlet weak var thumbnailView: UIImageView!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
@@ -88,5 +91,41 @@ class VideoCollectionViewCell: UICollectionViewCell {
             
             self.moreButton.setTitle("더보기", for: .normal)
         }
+    }
+    
+    @IBAction func playTouchUpInside(_ sender: Any) {
+        if isPlaying {
+            self.stopPlayer()
+        }
+        else if let videoID = self.data?.id?.videoID {
+            playerView.load(withVideoId: videoID)
+            playerView.playVideo()
+        }
+    }
+    
+    // MARK: YTPlayerViewDelegate
+    func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
+        
+    }
+    
+    func playerView(_ playerView: YTPlayerView, didChangeTo state: YTPlayerState) {
+        switch state {
+        case YTPlayerState.playing:
+            isPlaying = true
+            print("playState : playing")
+        case YTPlayerState.paused:
+            isPlaying = false
+            print("playState : paused")
+        case YTPlayerState.ended:
+            isPlaying = false
+           print("playState : ended")
+        default:
+            isPlaying = false
+            print("playState : " + String(describing: state.rawValue))
+        }
+    }
+    
+    func stopPlayer() {
+        playerView.stopVideo()
     }
 }

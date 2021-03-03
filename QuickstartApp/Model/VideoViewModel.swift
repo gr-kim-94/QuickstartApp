@@ -79,11 +79,11 @@ class VideoViewModel: VideoViewModelProtocol{
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
 
             do {
-//                guard let object = try? JSONSerialization.jsonObject(with: data!, options: []),
-//                      let jsonData = try? JSONSerialization.data(withJSONObject: object, options: [.prettyPrinted]),
-//                      let prettyPrintedString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue) else { return }
-//
-//                print(prettyPrintedString)
+                guard let object = try? JSONSerialization.jsonObject(with: data!, options: []),
+                      let jsonData = try? JSONSerialization.data(withJSONObject: object, options: [.prettyPrinted]),
+                      let prettyPrintedString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue) else { return }
+
+                print(prettyPrintedString)
                 
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .iso8601

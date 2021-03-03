@@ -95,17 +95,29 @@
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1rm-FE-vqi">
                                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                                                                 </imageView>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CR5-Zr-8qf" customClass="YTPlayerView">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </view>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Epc-p8-KHR">
-                                                                    <rect key="frame" x="150" y="89" width="20" height="22"/>
+                                                                    <rect key="frame" x="110" y="49" width="100" height="102"/>
+                                                                    <inset key="contentEdgeInsets" minX="40" minY="40" maxX="40" maxY="40"/>
                                                                     <state key="normal" image="play.circle" catalog="system"/>
+                                                                    <connections>
+                                                                        <action selector="playTouchUpInside:" destination="Q7j-N1-n4o" eventType="touchUpInside" id="Yzf-wV-M8a"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
+                                                                <constraint firstItem="CR5-Zr-8qf" firstAttribute="top" secondItem="HVN-l0-Pw4" secondAttribute="top" id="9qd-us-fi6"/>
                                                                 <constraint firstAttribute="bottom" secondItem="1rm-FE-vqi" secondAttribute="bottom" id="Bvd-gd-ehr"/>
                                                                 <constraint firstItem="Epc-p8-KHR" firstAttribute="centerX" secondItem="HVN-l0-Pw4" secondAttribute="centerX" id="FxN-Tc-joU"/>
+                                                                <constraint firstAttribute="trailing" secondItem="CR5-Zr-8qf" secondAttribute="trailing" id="IZH-W8-nLV"/>
+                                                                <constraint firstItem="CR5-Zr-8qf" firstAttribute="leading" secondItem="HVN-l0-Pw4" secondAttribute="leading" id="NRe-BE-kon"/>
                                                                 <constraint firstAttribute="trailing" secondItem="1rm-FE-vqi" secondAttribute="trailing" id="RKx-kx-m1d"/>
                                                                 <constraint firstItem="1rm-FE-vqi" firstAttribute="top" secondItem="HVN-l0-Pw4" secondAttribute="top" id="fb4-wN-9Of"/>
+                                                                <constraint firstAttribute="bottom" secondItem="CR5-Zr-8qf" secondAttribute="bottom" id="gdx-xc-tos"/>
                                                                 <constraint firstItem="1rm-FE-vqi" firstAttribute="leading" secondItem="HVN-l0-Pw4" secondAttribute="leading" id="iwY-9G-9fx"/>
                                                                 <constraint firstItem="Epc-p8-KHR" firstAttribute="centerY" secondItem="HVN-l0-Pw4" secondAttribute="centerY" id="max-t7-ohx"/>
                                                                 <constraint firstAttribute="height" constant="200" id="wca-yU-guG"/>
@@ -208,6 +220,7 @@
                                             <outlet property="moreButton" destination="zzh-Ao-0L1" id="zoS-XD-X0H"/>
                                             <outlet property="moreViewHeight" destination="ht2-fP-7dF" id="k9b-Uv-RJ2"/>
                                             <outlet property="playButton" destination="Epc-p8-KHR" id="cnQ-pX-IKk"/>
+                                            <outlet property="playerView" destination="CR5-Zr-8qf" id="Uos-X2-qUv"/>
                                             <outlet property="stackViewWidth" destination="nvd-Z8-BBm" id="zh6-ym-9vH"/>
                                             <outlet property="thumbnailView" destination="1rm-FE-vqi" id="Hse-Qb-Pov"/>
                                             <outlet property="titleLabel" destination="aaR-MN-EJr" id="aTc-cO-IIE"/>

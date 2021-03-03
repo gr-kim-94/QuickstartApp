@@ -10,7 +10,7 @@ import SDWebImage
 
 private let reuseIdentifier = "VideoCollectionViewCell"
 
-class MainViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
+class MainViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, UISearchBarDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -30,6 +30,10 @@ class MainViewController: BaseViewController, UICollectionViewDelegate, UICollec
         self.videoViewModel = VideoViewModel()
     }
     
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        self.collectionView.reloadData()
+    }
+    
     // MARK: - UISearchBarDelegate
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         searchBar.setShowsCancelButton(true, animated: true)
@@ -43,7 +47,9 @@ class MainViewController: BaseViewController, UICollectionViewDelegate, UICollec
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let keyword = searchBar.text {
-            self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: UICollectionView.ScrollPosition.top, animated: true)
+            if ((self.videoViewModel?.videoList) != nil) {
+                self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: UICollectionView.ScrollPosition.top, animated: true)
+            }
             self.videoViewModel?.keyword = keyword
             self.searchBarCancelButtonClicked(searchBar)
         }
@@ -93,4 +99,19 @@ class MainViewController: BaseViewController, UICollectionViewDelegate, UICollec
         }
     }
 
+    // MARK: UICollectionViewDataSource
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+         
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        guard let cells:[VideoCollectionViewCell] = self.collectionView.visibleCells as? [VideoCollectionViewCell] else {
+            return
+        }
+        for cell in cells {
+            if cell.isPlaying {
+                cell.stopPlayer()
+            }
+        }
+    }
 }
