@@ -12,7 +12,7 @@ class VideoCollectionViewCell: UICollectionViewCell {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var data: VideoItem?
-
+    
     @IBOutlet weak var thumbnailView: UIImageView!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
@@ -47,10 +47,10 @@ class VideoCollectionViewCell: UICollectionViewCell {
         let dateFormatterPrint = DateFormatter()
         dateFormatterPrint.timeZone = TimeZone(identifier:"GMT")
         dateFormatterPrint.dateFormat = "yy/MM/dd"
-
+        
         let datestring = dateFormatterPrint.string(from: publishedAt)
-        print(datestring)
-        print(publishedAt.description)
+//        print(datestring)
+//        print(publishedAt.description)
         self.dateLable.text = datestring
     }
     

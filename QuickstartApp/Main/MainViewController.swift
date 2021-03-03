@@ -81,4 +81,15 @@ class MainViewController: BaseViewController, UICollectionViewDelegate, UICollec
         
     }
 
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+
+        if let count = self.videoViewModel?.videoList?.count {
+            if (indexPath.row == count - 1 ) {
+                if (self.videoViewModel?.nextPageToken) != nil {
+                    self.videoViewModel?.requestVideoList()
+                }
+             }
+        }
+    }
+
 }

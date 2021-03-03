@@ -11,9 +11,11 @@ import Foundation
 protocol VideoViewModelProtocol: class {
     var videoListDidChange: ((VideoViewModelProtocol) -> ())? { get set }
     var keyword: String? { get set }
+    var nextPageToken: String? { get }
     var videoList: [VideoItem]? { get }
     init()
     func numberOfRowsInSection() -> Int
+    func requestVideoList()
 }
 
 // MARK: ViewModel
@@ -86,11 +88,10 @@ class VideoViewModel: VideoViewModelProtocol{
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .iso8601
                 let result = try? decoder.decode(VideoInfo.self, from: data!)
-                print("result : " + result.debugDescription)
+//                print("result : " + result.debugDescription)
 
                 self.nextPageToken = result?.nextPageToken
                 self.videoList! += result?.items ?? []
-//                self.videoList?.append(contentsOf: result?.items ?? [])
             }
             catch let error {
                 self.nextPageToken = nil
