@@ -43,6 +43,7 @@ class MainViewController: BaseViewController, UICollectionViewDelegate, UICollec
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let keyword = searchBar.text {
+            self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: UICollectionView.ScrollPosition.top, animated: true)
             self.videoViewModel?.keyword = keyword
             self.searchBarCancelButtonClicked(searchBar)
         }
