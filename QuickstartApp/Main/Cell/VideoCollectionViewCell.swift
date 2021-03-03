@@ -43,23 +43,15 @@ class VideoCollectionViewCell: UICollectionViewCell {
         self.descriptionLabel.text = description
     }
     
-    func setPublishedAt(_ publishedAt:String) {
-        var publishedAtString = publishedAt
-        if let index = publishedAtString.firstIndex(of: "T") {
-            let substring = publishedAtString[..<index]
-            publishedAtString = String(substring)
-        }
-
-        let dateFormatterGet = DateFormatter()
-        dateFormatterGet.dateFormat = "yyyy-mm-dd"
+    func setPublishedAt(_ publishedAt:Date) {
         let dateFormatterPrint = DateFormatter()
-        dateFormatterPrint.dateFormat = "yy/mm/dd"
-        let date: NSDate? = dateFormatterGet.date(from: publishedAtString) as NSDate?
-        guard date != nil else {
-            self.dateLable.text = ""
-            return
-        }
-        self.dateLable.text = dateFormatterPrint.string(from: date! as Date)
+        dateFormatterPrint.timeZone = TimeZone(identifier:"GMT")
+        dateFormatterPrint.dateFormat = "yy/MM/dd"
+
+        let datestring = dateFormatterPrint.string(from: publishedAt)
+        print(datestring)
+        print(publishedAt.description)
+        self.dateLable.text = datestring
     }
     
     func setThumbnail(_ thumbnails:Thumbnails) {

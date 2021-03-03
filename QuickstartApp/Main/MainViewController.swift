@@ -70,7 +70,7 @@ class MainViewController: BaseViewController, UICollectionViewDelegate, UICollec
 
         cell.setTitle(data.snippet?.title ?? "")
         cell.setDescriptionLabel(data.snippet?.snippetDescription ?? "")
-        cell.setPublishedAt(data.snippet?.publishedAt?.debugDescription ?? "")
+        cell.setPublishedAt(data.snippet?.publishedAt ?? Date())
         cell.setThumbnail(snippet.thumbnails ?? Thumbnails.init(thumbnailsDefault: Default.init(url: "", width: 0, height: 0), high: Default.init(url: "", width: 0, height: 0), medium: Default.init(url: "", width: 0, height: 0)))
         
         
