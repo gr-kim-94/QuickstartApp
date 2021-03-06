@@ -89,19 +89,19 @@ class MainViewController: BaseViewController, UICollectionViewDelegate, UICollec
     }
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-
-        if let count = self.videoViewModel?.videoList?.count {
-            if (indexPath.row == count - 1 ) {
-                if (self.videoViewModel?.nextPageToken) != nil {
-                    self.videoViewModel?.requestVideoList()
-                }
-             }
-        }
+        
     }
 
     // MARK: UICollectionViewDataSource
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-         
+        if let cell = self.collectionView.visibleCells.last {
+            let indexPath = self.collectionView.indexPath(for: cell)
+            if (indexPath?.row == (self.videoViewModel?.videoList?.count ?? 0) - 1) {
+                if (self.videoViewModel?.nextPageToken) != nil {
+                    self.videoViewModel?.requestVideoList()
+                }
+            }
+        }
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {

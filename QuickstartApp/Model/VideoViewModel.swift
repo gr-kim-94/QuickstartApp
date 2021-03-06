@@ -56,6 +56,7 @@ class VideoViewModel: VideoViewModelProtocol{
         urlQuery.append(URLQueryItem(name: "type", value: "video"))
         urlQuery.append(URLQueryItem(name: "videoSyndicated", value: "true"))
         urlQuery.append(URLQueryItem(name: "regionCode", value: "KR"))
+        urlQuery.append(URLQueryItem(name: "maxResults", value: "30"))
         
         let isMore = (self.nextPageToken?.isEmpty == false)
         if isMore {
