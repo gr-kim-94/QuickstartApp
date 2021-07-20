@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 import GoogleSignIn
 
-class LoginViewController: BaseViewController, GIDSignInDelegate {
+class LoginViewController: BaseViewController {
     
     @IBOutlet weak var signInButton: GIDSignInButton!
     
@@ -18,58 +18,64 @@ class LoginViewController: BaseViewController, GIDSignInDelegate {
         
         // Do any additional setup after loading the view.
         
-        self.signInButton.isHidden = true
-
-        // Google login init
-        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
-        GIDSignIn.sharedInstance().delegate = self
-        GIDSignIn.sharedInstance()?.presentingViewController = self
-        
-        GIDSignIn.sharedInstance()?.restorePreviousSignIn() // 자동로그인
+        GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
+          if error != nil || user == nil {
+            // Show the app's signed-out state.
+          } else {
+            // Show the app's signed-in state.
+            self.skipTouchUpInside(UIButton.init())
+          }
+        }
     }
     
-    // MARK: GIDSignInDelegate
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
-        // ...
-        if let error = error {
-            print ("Error signIn : %@", error.localizedDescription)
-            self.signInButton.isHidden = false
-            return
-        }
-        
-        guard let authentication = user.authentication else {
-            self.signInButton.isHidden = false
-            return
-        }
-        
-        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
-                                                       accessToken: authentication.accessToken)
-        
-        Auth.auth().signIn(with: credential) { (authResult, error) in
-            if let error = error {
-                print ("Error signing in: %@", error.localizedDescription)
-                self.signInButton.isHidden = false
+    @IBAction func signIn(sender: Any) {
+        // 서버에 ID 토큰 보내기
+        let signInConfig = GIDConfiguration.init(clientID: "791440875910-ei173smqo1eu6m2act6o8co8t1pukcrb.apps.googleusercontent.com")
+        GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
+            guard error == nil else {
+                print ("Error signIn : %@", error?.localizedDescription ?? "")
+                
                 return
             }
-            // User is signed in
-            // ...
-            //print ("Sign In.")
+            // 사용자 정보 가져오기
+            guard let user = user else {
+                return
+            }
             
-            self.appDelegate.user = user;
-            
-            let mainViewController = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController")
-            self.appDelegate.window?.rootViewController = mainViewController
-            self.appDelegate.window?.makeKeyAndVisible()
+            user.authentication.do { authentication, error in
+                guard error == nil else { return }
+                guard let authentication = authentication else { return }
+                
+                let idToken = authentication.idToken
+                let accessToken = authentication.accessToken
+                // Send ID token to backend (example below).
+                                
+                let credential = GoogleAuthProvider.credential(withIDToken: idToken ?? "",
+                                                               accessToken: accessToken)
+                
+                Auth.auth().signIn(with: credential) { (authResult, error) in
+                    if let error = error {
+                        print ("Error signing in: %@", error.localizedDescription)
+                        self.signInButton.isHidden = false
+                        return
+                    }
+                    // User is signed in
+                    // ...
+                    //print ("Sign In.")
+                    
+                    self.appDelegate.user = user;
+                    
+                    let mainViewController = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController")
+                    self.appDelegate.window?.rootViewController = mainViewController
+                    self.appDelegate.window?.makeKeyAndVisible()
+                }
+                
+            }
         }
     }
     
-    func signOut() {
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
-        }
+    @IBAction func signOut(sender: Any) {
+        GIDSignIn.sharedInstance.signOut()
     }
     
     @IBAction func skipTouchUpInside(_ sender: Any) {

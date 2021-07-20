@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>791440875910-cslotkq09osra9ga3bv3guhu8f85p6s1.apps.googleusercontent.com</string>
+	<string>791440875910-ei173smqo1eu6m2act6o8co8t1pukcrb.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.791440875910-cslotkq09osra9ga3bv3guhu8f85p6s1</string>
+	<string>com.googleusercontent.apps.791440875910-ei173smqo1eu6m2act6o8co8t1pukcrb</string>
 	<key>API_KEY</key>
 	<string>AIzaSyAHd9fSZKGRNtXQFL5Ubjdne9gGC5Ddu8M</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.ssg.tested.QuickstartApp</string>
+	<string>com.tube.tested.QuickstartApp</string>
 	<key>PROJECT_ID</key>
 	<string>quickstartapp-ba0a0</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:791440875910:ios:8f5de12e7fe7c0e6d30c07</string>
+	<string>1:791440875910:ios:73cd2eae3d5c39e7d30c07</string>
 </dict>
 </plist>
