@@ -11,6 +11,7 @@
 		C83CB091282DE71400A7C025 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83CB090282DE71400A7C025 /* APIManager.swift */; };
 		C83CB093282DEAFD00A7C025 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C83CB092282DEAFD00A7C025 /* GoogleService-Info.plist */; };
 		C83CB095282DEB0F00A7C025 /* Secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C83CB094282DEB0F00A7C025 /* Secrets.xcconfig */; };
+		C83CB09D282E134C00A7C025 /* QuickstartAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83CB09C282E134C00A7C025 /* QuickstartAppTests.swift */; };
 		F474DF4225EC1AE90034D6A0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F474DF4125EC1AE90034D6A0 /* MainViewController.swift */; };
 		F474DFF125EC35140034D6A0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F474DFF025EC35140034D6A0 /* BaseViewController.swift */; };
 		F474E06025EC6A140034D6A0 /* VideoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F474E05F25EC6A140034D6A0 /* VideoInfo.swift */; };
@@ -23,12 +24,24 @@
 		F47D4B1525EBF49700736B87 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47D4B1425EBF49700736B87 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C83CB09E282E134C00A7C025 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F47D4ACB25EBEEEE00736B87 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F47D4AD225EBEEEE00736B87;
+			remoteInfo = QuickstartApp;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		278CCAA26B24A960AD7A9C76 /* Pods-QuickstartApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickstartApp.release.xcconfig"; path = "Target Support Files/Pods-QuickstartApp/Pods-QuickstartApp.release.xcconfig"; sourceTree = "<group>"; };
 		A001736BA2066001A2860B5C /* Pods-QuickstartApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickstartApp.debug.xcconfig"; path = "Target Support Files/Pods-QuickstartApp/Pods-QuickstartApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C83CB090282DE71400A7C025 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		C83CB092282DEAFD00A7C025 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C83CB094282DEB0F00A7C025 /* Secrets.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
+		C83CB09A282E134C00A7C025 /* QuickstartAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickstartAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C83CB09C282E134C00A7C025 /* QuickstartAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickstartAppTests.swift; sourceTree = "<group>"; };
 		C9D34279573E05695F64C472 /* Pods_QuickstartApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuickstartApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F474DF4125EC1AE90034D6A0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F474DFF025EC35140034D6A0 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +58,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C83CB097282E134C00A7C025 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F47D4AD025EBEEEE00736B87 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -81,6 +101,14 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		C83CB09B282E134C00A7C025 /* QuickstartAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				C83CB09C282E134C00A7C025 /* QuickstartAppTests.swift */,
+			);
+			path = QuickstartAppTests;
+			sourceTree = "<group>";
+		};
 		F474DFF325EC35A60034D6A0 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,8 +137,8 @@
 		F474DFF625EC35DB0034D6A0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F47D4AE425EBEEF200736B87 /* Info.plist */,
 				C83CB094282DEB0F00A7C025 /* Secrets.xcconfig */,
+				F47D4AE425EBEEF200736B87 /* Info.plist */,
 				C83CB092282DEAFD00A7C025 /* GoogleService-Info.plist */,
 			);
 			name = "Supporting Files";
@@ -129,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				F47D4AD525EBEEEE00736B87 /* QuickstartApp */,
+				C83CB09B282E134C00A7C025 /* QuickstartAppTests */,
 				F47D4AD425EBEEEE00736B87 /* Products */,
 				05CB0E0C90DA0BE1EE175C0F /* Pods */,
 				578BCCD4BE52347622E92174 /* Frameworks */,
@@ -139,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				F47D4AD325EBEEEE00736B87 /* QuickstartApp.app */,
+				C83CB09A282E134C00A7C025 /* QuickstartAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -163,6 +193,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C83CB099282E134C00A7C025 /* QuickstartAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C83CB0A0282E134C00A7C025 /* Build configuration list for PBXNativeTarget "QuickstartAppTests" */;
+			buildPhases = (
+				C83CB096282E134C00A7C025 /* Sources */,
+				C83CB097282E134C00A7C025 /* Frameworks */,
+				C83CB098282E134C00A7C025 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C83CB09F282E134C00A7C025 /* PBXTargetDependency */,
+			);
+			name = QuickstartAppTests;
+			productName = QuickstartAppTests;
+			productReference = C83CB09A282E134C00A7C025 /* QuickstartAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		F47D4AD225EBEEEE00736B87 /* QuickstartApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F47D4AE725EBEEF200736B87 /* Build configuration list for PBXNativeTarget "QuickstartApp" */;
@@ -188,9 +236,13 @@
 		F47D4ACB25EBEEEE00736B87 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
+				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
+					C83CB099282E134C00A7C025 = {
+						CreatedOnToolsVersion = 13.3.1;
+						TestTargetID = F47D4AD225EBEEEE00736B87;
+					};
 					F47D4AD225EBEEEE00736B87 = {
 						CreatedOnToolsVersion = 12.4;
 					};
@@ -210,11 +262,19 @@
 			projectRoot = "";
 			targets = (
 				F47D4AD225EBEEEE00736B87 /* QuickstartApp */,
+				C83CB099282E134C00A7C025 /* QuickstartAppTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C83CB098282E134C00A7C025 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F47D4AD125EBEEEE00736B87 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -272,6 +332,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C83CB096282E134C00A7C025 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C83CB09D282E134C00A7C025 /* QuickstartAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F47D4ACF25EBEEEE00736B87 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -288,6 +356,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C83CB09F282E134C00A7C025 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F47D4AD225EBEEEE00736B87 /* QuickstartApp */;
+			targetProxy = C83CB09E282E134C00A7C025 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F47D4ADC25EBEEEE00736B87 /* Main.storyboard */ = {
@@ -309,8 +385,47 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C83CB0A1282E134C00A7C025 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tube.tested.QuickstartAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuickstartApp.app/QuickstartApp";
+			};
+			name = Debug;
+		};
+		C83CB0A2282E134C00A7C025 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tube.tested.QuickstartAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuickstartApp.app/QuickstartApp";
+			};
+			name = Release;
+		};
 		F47D4AE525EBEEF200736B87 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C83CB094282DEB0F00A7C025 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -470,6 +585,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C83CB0A0282E134C00A7C025 /* Build configuration list for PBXNativeTarget "QuickstartAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C83CB0A1282E134C00A7C025 /* Debug */,
+				C83CB0A2282E134C00A7C025 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F47D4ACE25EBEEEE00736B87 /* Build configuration list for PBXProject "QuickstartApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -10,7 +10,7 @@ import SDWebImage
 
 private let reuseIdentifier = "VideoCollectionViewCell"
 
-class MainViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, UISearchBarDelegate {
+class MainViewController: BaseViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -33,8 +33,10 @@ class MainViewController: BaseViewController, UICollectionViewDelegate, UICollec
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         self.collectionView.reloadData()
     }
-    
-    // MARK: - UISearchBarDelegate
+}
+
+// MARK: - UISearchBarDelegate
+extension MainViewController: UISearchBarDelegate {
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         searchBar.setShowsCancelButton(true, animated: true)
         return true
@@ -54,8 +56,9 @@ class MainViewController: BaseViewController, UICollectionViewDelegate, UICollec
             self.searchBarCancelButtonClicked(searchBar)
         }
     }
-    
-    // MARK: UICollectionViewDataSource
+}
+
+extension MainViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -69,30 +72,18 @@ class MainViewController: BaseViewController, UICollectionViewDelegate, UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! VideoCollectionViewCell
         guard let data = self.videoViewModel?.videoList?[indexPath.row] else { return cell }
-        guard let snippet = data.snippet else { return cell }
+        guard data.snippet != nil else { return cell }
         
         cell.data = data
 
-        cell.stackViewWidth.constant = collectionView.frame.size.width
-
-        cell.setTitle(data.snippet?.title ?? "")
-        cell.setDescriptionLabel(data.snippet?.snippetDescription ?? "")
-        cell.setPublishedAt(data.snippet?.publishedAt ?? Date())
-        cell.setThumbnail(snippet.thumbnails ?? Thumbnails.init(thumbnailsDefault: Default.init(url: "", width: 0, height: 0), high: Default.init(url: "", width: 0, height: 0), medium: Default.init(url: "", width: 0, height: 0)))
-        
+        cell.stackViewWidth.constant = collectionView.frame.size.width        
         
         return cell
     }
-        
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-    }
+}
 
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        
-    }
-
-    // MARK: UICollectionViewDataSource
+// MARK: UIScrollViewDelegate
+extension MainViewController: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if let cell = self.collectionView.visibleCells.last {
             let indexPath = self.collectionView.indexPath(for: cell)

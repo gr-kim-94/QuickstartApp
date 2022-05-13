@@ -9,11 +9,8 @@ import UIKit
 import SDWebImage
 import youtube_ios_player_helper
 
-class VideoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
+class VideoCollectionViewCell: UICollectionViewCell {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
-    var isPlaying = false
-    var data: VideoItem?
     
     @IBOutlet weak var playerView: YTPlayerView!
     @IBOutlet weak var thumbnailView: UIImageView!
@@ -29,6 +26,40 @@ class VideoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
     @IBOutlet weak var moreViewHeight: NSLayoutConstraint!
     @IBOutlet weak var stackViewWidth: NSLayoutConstraint!
     
+    var isPlaying = false
+    var data: VideoItem? {
+        didSet {
+            if let data = self.data {
+                self.titleLabel.text = data.snippet?.title ?? ""
+                
+                self.descriptionLabel.text = data.snippet?.snippetDescription ?? ""
+                
+                let dateFormatterPrint = DateFormatter()
+                dateFormatterPrint.timeZone = TimeZone(identifier:"GMT")
+                dateFormatterPrint.dateFormat = "yy/MM/dd"
+                let date = data.snippet?.publishedAt ?? Date()
+                let datestring = dateFormatterPrint.string(from: date)
+                self.dateLable.text = datestring
+                
+                let thumbnail = data.snippet?.thumbnails
+                self.thumbnailView.sd_setImage(with: URL(string: thumbnail?.default?.url ?? ""), placeholderImage: nil)
+                
+                // 이미지 비율 조정
+                let screenSize: CGRect = UIScreen.main.bounds
+                if let image = self.thumbnailView.image {
+                    let ratio = image.size.width / image.size.height
+                    if screenSize.width > screenSize.height {
+                        let newHeight = screenSize.width / ratio
+                        self.imageViewHeight.constant = newHeight
+                    }
+                    else{
+                    }
+                }
+            }
+        }
+    }
+    
+    
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
@@ -36,43 +67,6 @@ class VideoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-    }
-    
-    func setTitle(_ title: String) {
-        self.titleLabel.text = title
-    }
-    
-    func setDescriptionLabel(_ description: String) {
-        self.descriptionLabel.text = description
-    }
-    
-    func setPublishedAt(_ publishedAt:Date) {
-        let dateFormatterPrint = DateFormatter()
-        dateFormatterPrint.timeZone = TimeZone(identifier:"GMT")
-        dateFormatterPrint.dateFormat = "yy/MM/dd"
-        
-        let datestring = dateFormatterPrint.string(from: publishedAt)
-//        print(datestring)
-//        print(publishedAt.description)
-        self.dateLable.text = datestring
-    }
-    
-    func setThumbnail(_ thumbnails:Thumbnails) {
-        let thumbnail = thumbnails.thumbnailsDefault
-        self.thumbnailView.sd_setImage(with: URL(string: thumbnail?.url ?? ""), placeholderImage: nil)
-        
-        // 이미지 비율 조정
-        let screenSize: CGRect = UIScreen.main.bounds
-        if let image = self.thumbnailView.image {
-            let ratio = image.size.width / image.size.height
-            if screenSize.width > screenSize.height {
-                let newHeight = screenSize.width / ratio
-                self.imageViewHeight.constant = newHeight
-            }
-            else{
-                //                let newWidth = screenSize.height * ratio
-            }
-        }
     }
     
     @IBAction func moreTouchUpInside(_ sender: Any) {
@@ -103,7 +97,13 @@ class VideoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
         }
     }
     
-    // MARK: YTPlayerViewDelegate
+    func stopPlayer() {
+        playerView.stopVideo()
+    }
+}
+
+// MARK: YTPlayerViewDelegate
+extension VideoCollectionViewCell: YTPlayerViewDelegate {
     func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
         
     }
@@ -118,14 +118,10 @@ class VideoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
             print("playState : paused")
         case YTPlayerState.ended:
             isPlaying = false
-           print("playState : ended")
+            print("playState : ended")
         default:
             isPlaying = false
             print("playState : " + String(describing: state.rawValue))
         }
-    }
-    
-    func stopPlayer() {
-        playerView.stopVideo()
     }
 }
