@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: Protocol
-protocol VideoViewModelProtocol: class {
+protocol VideoViewModelProtocol {
     var videoListDidChange: ((VideoViewModelProtocol) -> ())? { get set }
     var keyword: String? { get set }
     var nextPageToken: String? { get }
@@ -50,7 +50,7 @@ class VideoViewModel: VideoViewModelProtocol{
     func requestVideoList() {
         //        var value = String(data: self.keyword, encoding:.utf8)
         var urlQuery = [URLQueryItem]()
-        urlQuery.append(URLQueryItem(name: "key", value: "AIzaSyDc2PiPjxiF0CVmGBez42wNnTGITb7qeN8"))
+        urlQuery.append(URLQueryItem(name: "key", value: APIManager().apiKey))
         urlQuery.append(URLQueryItem(name: "part", value: "snippet"))
         urlQuery.append(URLQueryItem(name: "q", value: self.keyword))
         urlQuery.append(URLQueryItem(name: "type", value: "video"))
