@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4EBC825876E1D09E574A9D2F /* Pods_QuickstartApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D34279573E05695F64C472 /* Pods_QuickstartApp.framework */; };
 		C83CB091282DE71400A7C025 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83CB090282DE71400A7C025 /* APIManager.swift */; };
+		C83CB093282DEAFD00A7C025 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C83CB092282DEAFD00A7C025 /* GoogleService-Info.plist */; };
+		C83CB095282DEB0F00A7C025 /* Secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C83CB094282DEB0F00A7C025 /* Secrets.xcconfig */; };
 		F474DF4225EC1AE90034D6A0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F474DF4125EC1AE90034D6A0 /* MainViewController.swift */; };
 		F474DFF125EC35140034D6A0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F474DFF025EC35140034D6A0 /* BaseViewController.swift */; };
 		F474E06025EC6A140034D6A0 /* VideoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F474E05F25EC6A140034D6A0 /* VideoInfo.swift */; };
@@ -24,8 +26,9 @@
 /* Begin PBXFileReference section */
 		278CCAA26B24A960AD7A9C76 /* Pods-QuickstartApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickstartApp.release.xcconfig"; path = "Target Support Files/Pods-QuickstartApp/Pods-QuickstartApp.release.xcconfig"; sourceTree = "<group>"; };
 		A001736BA2066001A2860B5C /* Pods-QuickstartApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickstartApp.debug.xcconfig"; path = "Target Support Files/Pods-QuickstartApp/Pods-QuickstartApp.debug.xcconfig"; sourceTree = "<group>"; };
-		C83CB08E282DE57E00A7C025 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		C83CB090282DE71400A7C025 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		C83CB092282DEAFD00A7C025 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C83CB094282DEB0F00A7C025 /* Secrets.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		C9D34279573E05695F64C472 /* Pods_QuickstartApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuickstartApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F474DF4125EC1AE90034D6A0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F474DFF025EC35140034D6A0 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				F47D4AE425EBEEF200736B87 /* Info.plist */,
+				C83CB094282DEB0F00A7C025 /* Secrets.xcconfig */,
+				C83CB092282DEAFD00A7C025 /* GoogleService-Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -151,7 +156,6 @@
 				F47D4AE125EBEEF200736B87 /* LaunchScreen.storyboard */,
 				F47D4ADF25EBEEF200736B87 /* Assets.xcassets */,
 				F474DFF625EC35DB0034D6A0 /* Supporting Files */,
-				C83CB08E282DE57E00A7C025 /* Secrets.xcconfig */,
 			);
 			path = QuickstartApp;
 			sourceTree = "<group>";
@@ -216,6 +220,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F47D4AE325EBEEF200736B87 /* LaunchScreen.storyboard in Resources */,
+				C83CB095282DEB0F00A7C025 /* Secrets.xcconfig in Resources */,
+				C83CB093282DEAFD00A7C025 /* GoogleService-Info.plist in Resources */,
 				F47D4AE025EBEEF200736B87 /* Assets.xcassets in Resources */,
 				F47D4ADE25EBEEEE00736B87 /* Main.storyboard in Resources */,
 			);
@@ -305,7 +311,6 @@
 /* Begin XCBuildConfiguration section */
 		F47D4AE525EBEEF200736B87 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C83CB08E282DE57E00A7C025 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
