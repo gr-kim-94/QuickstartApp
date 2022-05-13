@@ -30,8 +30,13 @@ class LoginViewController: BaseViewController {
     
     @IBAction func signIn(sender: Any) {
         // 서버에 ID 토큰 보내기
-        let signInConfig = GIDConfiguration.init(clientID: "791440875910-ei173smqo1eu6m2act6o8co8t1pukcrb.apps.googleusercontent.com")
-        GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+        
+        // Create Google Sign In configuration object.
+        let config = GIDConfiguration(clientID: clientID)
+        
+        // Start the sign in flow!
+        GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { user, error in
             guard error == nil else {
                 print ("Error signIn : %@", error?.localizedDescription ?? "")
                 
